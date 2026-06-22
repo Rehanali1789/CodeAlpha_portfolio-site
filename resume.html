@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Site – Resume</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f1f5f9;
+      color: #1e293b;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 16px;
+    }
+
+    /* Download bar */
+    .download-bar {
+      width: 100%; max-width: 860px;
+      display: flex; justify-content: flex-end; margin-bottom: 16px;
+    }
+    .download-btn {
+      background: linear-gradient(135deg, #00E5FF, #7C3AED);
+      color: #fff; border: none; padding: 12px 28px;
+      border-radius: 50px; font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem; font-weight: 600; cursor: pointer;
+      display: flex; align-items: center; gap: 8px;
+      box-shadow: 0 4px 20px rgba(0,229,255,0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .download-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,229,255,0.5); }
+
+    /* Resume paper */
+    #resume-paper {
+      width: 100%; max-width: 860px;
+      background: #ffffff;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    /* Header */
+    .r-header {
+      background: linear-gradient(135deg, #EFF6FF 0%, #F0F9FF 100%);
+      border-bottom: 3px solid #00C4D8;
+      padding: 40px 48px 36px;
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 24px;
+    }
+    .r-header-left h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.2rem; font-weight: 800;
+      color: #0F172A; letter-spacing: -0.5px;
+    }
+    .r-header-left h1 span { color: #0891B2; }
+    .r-header-left .title {
+      color: #475569; font-size: 1rem; font-weight: 500; margin-top: 4px;
+    }
+    .r-header-left .tagline {
+      color: #64748B; font-size: 0.82rem; margin-top: 8px; max-width: 380px; line-height: 1.5;
+    }
+    .r-header-right { text-align: right; display: flex; flex-direction: column; gap: 6px; flex-shrink: 0; }
+    .r-contact-item {
+      display: flex; align-items: center; justify-content: flex-end; gap: 8px;
+      color: #475569; font-size: 0.82rem;
+    }
+    .r-contact-item .icon { color: #0891B2; font-size: 0.9rem; width: 16px; }
+
+    /* Body */
+    .r-body { display: grid; grid-template-columns: 1fr 2fr; min-height: 900px; }
+
+    /* Sidebar */
+    .r-sidebar { background: #F8FAFC; border-right: 1px solid #E2E8F0; padding: 32px 28px; }
+    .r-sidebar-section { margin-bottom: 32px; }
+    .sidebar-title {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #0891B2;
+      border-bottom: 1px solid #CBD5E1;
+      padding-bottom: 8px; margin-bottom: 16px;
+    }
+
+    /* Skills in sidebar */
+    .skill-item { margin-bottom: 12px; }
+    .skill-name { color: #334155; font-size: 0.82rem; font-weight: 500; display: flex; justify-content: space-between; margin-bottom: 5px; }
+    .skill-name span { color: #0891B2; font-size: 0.75rem; }
+    .skill-bar { height: 5px; background: #E2E8F0; border-radius: 3px; overflow: hidden; }
+    .skill-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, #0891B2, #7C3AED); }
+
+    /* Languages */
+    .lang-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .lang-name { color: #334155; font-size: 0.82rem; }
+    .lang-dots { display: flex; gap: 4px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: #CBD5E1; }
+    .dot.filled { background: #0891B2; }
+
+    /* Interests */
+    .interests-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
+    .interest-tag {
+      background: #EFF6FF; border: 1px solid #BFDBFE;
+      color: #1D4ED8; font-size: 0.75rem; padding: 4px 12px; border-radius: 50px;
+    }
+
+    /* Social links */
+    .social-item { display: flex; align-items: center; gap: 8px; color: #64748B; font-size: 0.8rem; margin-bottom: 8px; }
+    .social-item .icon { color: #0891B2; width: 16px; }
+
+    /* Main content */
+    .r-main { padding: 32px 40px; }
+    .main-section { margin-bottom: 32px; }
+    .main-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #7C3AED;
+      border-bottom: 2px solid #7C3AED;
+      padding-bottom: 6px; margin-bottom: 18px; display: inline-block; width: 100%;
+    }
+
+    /* Experience / Education items */
+    .item { margin-bottom: 20px; padding-left: 16px; border-left: 2px solid #e2e8f0; }
+    .item-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 4px; margin-bottom: 4px; }
+    .item-title { font-weight: 700; font-size: 0.92rem; color: #1e293b; }
+    .item-date { font-size: 0.75rem; color: #0891B2; font-weight: 600; white-space: nowrap; background: #EFF6FF; padding: 2px 10px; border-radius: 50px; }
+    .item-sub { color: #64748B; font-size: 0.82rem; margin-bottom: 6px; font-weight: 500; }
+    .item-desc { color: #475569; font-size: 0.82rem; line-height: 1.65; }
+    .item-desc ul { padding-left: 16px; }
+    .item-desc ul li { margin-bottom: 3px; }
+
+    /* Projects */
+    .project-item { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 16px; margin-bottom: 12px; }
+    .project-header { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
+    .project-name { font-weight: 700; font-size: 0.88rem; color: #1e293b; }
+    .project-tech { display: flex; gap: 6px; flex-wrap: wrap; }
+    .tech-badge { background: rgba(124,58,237,0.08); color: #7C3AED; border: 1px solid rgba(124,58,237,0.2); font-size: 0.7rem; padding: 2px 8px; border-radius: 50px; font-weight: 500; }
+    .project-desc { color: #64748B; font-size: 0.8rem; line-height: 1.6; }
+
+    /* Certifications */
+    .cert-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px dashed #e2e8f0; }
+    .cert-item:last-child { border-bottom: none; }
+    .cert-name { font-size: 0.85rem; font-weight: 600; color: #1e293b; }
+    .cert-issuer { font-size: 0.78rem; color: #64748B; }
+    .cert-year { font-size: 0.78rem; color: #7C3AED; font-weight: 600; }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .download-bar { display: none; }
+      #resume-paper { box-shadow: none; border-radius: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="download-bar">
+    <button class="download-btn" onclick="window.print()">
+      ⬇ Download / Print PDF
+    </button>
+  </div>
+
+  <div id="resume-paper">
+
+    <!-- Header -->
+    <div class="r-header">
+      <div class="r-header-left">
+        <h1>Portfolio <span>Site</span></h1>
+        <div class="title">Software Developer & Frontend Engineer</div>
+        <div class="tagline">Passionate about building clean, scalable web applications with modern technologies. Seeking a challenging internship/junior role to grow and contribute.</div>
+      </div>
+      <div class="r-header-right">
+        <div class="r-contact-item"><span class="icon">📧</span> mohammedrehanali1789@gmail.com</div>
+        <div class="r-contact-item"><span class="icon">📱</span> +91 9160701789</div>
+        <div class="r-contact-item"><span class="icon">🌐</span> portfoliosite.dev</div>
+        <div class="r-contact-item"><span class="icon">💼</span> linkedin.com/in/mohammed-rehan-ali</div>
+        <div class="r-contact-item"><span class="icon">🐙</span> github.com/Rehanali1789</div>
+        <div class="r-contact-item"><span class="icon">📍</span> Hyderabad, India</div>
+      </div>
+    </div>
+
+    <div class="r-body">
+
+      <!-- Sidebar -->
+      <div class="r-sidebar">
+
+        <div class="r-sidebar-section">
+          <div class="sidebar-title">Technical Skills</div>
+          <div class="skill-item"><div class="skill-name">HTML5 <span>95%</span></div><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">CSS3 <span>90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">JavaScript <span>85%</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">Python <span>80%</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">Java <span>75%</span></div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">SQL <span>78%</span></div><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">Git / GitHub <span>88%</span></div><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+        </div>
+
+        <div class="r-sidebar-section">
+          <div class="sidebar-title">Tools & Frameworks</div>
+          <div class="interests-wrap">
+            <span class="interest-tag">React</span>
+            <span class="interest-tag">Node.js</span>
+            <span class="interest-tag">VS Code</span>
+            <span class="interest-tag">Figma</span>
+            <span class="interest-tag">MySQL</span>
+            <span class="interest-tag">REST API</span>
+            <span class="interest-tag">Linux</span>
+            <span class="interest-tag">Postman</span>
+          </div>
+        </div>
+
+        <div class="r-sidebar-section">
+          <div class="sidebar-title">Languages</div>
+          <div class="lang-item">
+            <span class="lang-name">English</span>
+            <div class="lang-dots">
+              <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+            </div>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">Spanish</span>
+            <div class="lang-dots">
+              <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div><div class="dot"></div>
+            </div>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">French</span>
+            <div class="lang-dots">
+              <div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="r-sidebar-section">
+          <div class="sidebar-title">Soft Skills</div>
+          <div class="interests-wrap">
+            <span class="interest-tag">Team Player</span>
+            <span class="interest-tag">Problem Solver</span>
+            <span class="interest-tag">Communication</span>
+            <span class="interest-tag">Adaptability</span>
+            <span class="interest-tag">Time Management</span>
+          </div>
+        </div>
+
+        <div class="r-sidebar-section">
+          <div class="sidebar-title">Interests</div>
+          <div class="interests-wrap">
+            <span class="interest-tag">Open Source</span>
+            <span class="interest-tag">UI Design</span>
+            <span class="interest-tag">AI / ML</span>
+            <span class="interest-tag">Gaming</span>
+            <span class="interest-tag">Photography</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Main -->
+      <div class="r-main">
+
+        <div class="main-section">
+          <div class="main-title">Professional Summary</div>
+          <p style="color:#475569;font-size:0.85rem;line-height:1.7;">
+            Motivated Computer Science student with 2+ years of hands-on experience in frontend development, responsive design, and Python scripting. Proven ability to deliver clean, well-documented code and collaborate effectively in team environments. Looking to leverage my skills in a challenging internship or junior developer role.
+          </p>
+        </div>
+
+        <div class="main-section">
+          <div class="main-title">Experience</div>
+          <div class="item">
+            <div class="item-header">
+              <span class="item-title">Frontend Developer Intern</span>
+              <span class="item-date">Summer 2025</span>
+            </div>
+            <div class="item-sub">TechCorp Inc. — Hyderabad, India</div>
+            <div class="item-desc">
+              <ul>
+                <li>Built and maintained reusable React UI components, reducing development time by 25%.</li>
+                <li>Improved page load speed by 30% through lazy loading and asset optimization.</li>
+                <li>Collaborated with design team to implement pixel-perfect responsive layouts.</li>
+                <li>Participated in daily standups and sprint planning in an Agile environment.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-header">
+              <span class="item-title">Freelance Web Developer</span>
+              <span class="item-date">2024</span>
+            </div>
+            <div class="item-sub">Self-Employed — Remote</div>
+            <div class="item-desc">
+              <ul>
+                <li>Designed and deployed 5+ client websites with fully responsive layouts.</li>
+                <li>Integrated REST APIs and third-party services (payment, maps, analytics).</li>
+                <li>Maintained direct client communication to gather requirements and deliver feedback.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="main-section">
+          <div class="main-title">Education</div>
+          <div class="item">
+            <div class="item-header">
+              <span class="item-title">B.Sc. Computer Science</span>
+              <span class="item-date">2025 – Present</span>
+            </div>
+            <div class="item-sub">Malla Reddy University, Hyderabad, India</div>
+            <div class="item-desc">GPA: 3.8 / 4.0 · Relevant: Data Structures, Algorithms, Web Dev, Databases, OOP</div>
+          </div>
+          <div class="item">
+            <div class="item-header">
+              <span class="item-title">MPC</span>
+              <span class="item-date">2023 – 2025</span>
+            </div>
+            <div class="item-sub">Sr Junior College — Hyderabad, India</div>
+            <div class="item-desc">GPA: 75/100 Percentage · Honors graduate · Computer Science Club president</div>
+          </div>
+        </div>
+
+        <div class="main-section">
+          <div class="main-title">Projects</div>
+          <div class="project-item">
+            <div class="project-header">
+              <span class="project-name">E-Commerce Platform</span>
+              <div class="project-tech"><span class="tech-badge">HTML</span><span class="tech-badge">CSS</span><span class="tech-badge">JavaScript</span></div>
+            </div>
+            <div class="project-desc">Full-featured online store with cart, authentication, and Stripe payment integration. Deployed on Netlify.</div>
+          </div>
+          <div class="project-item">
+            <div class="project-header">
+              <span class="project-name">Data Analytics Dashboard</span>
+              <div class="project-tech"><span class="tech-badge">Python</span><span class="tech-badge">Pandas</span><span class="tech-badge">Dash</span></div>
+            </div>
+            <div class="project-desc">Interactive data visualization dashboard processing 100k+ records with real-time filtering and chart exports.</div>
+          </div>
+          <div class="project-item">
+            <div class="project-header">
+              <span class="project-name">Task Manager Desktop App</span>
+              <div class="project-tech"><span class="tech-badge">Java</span><span class="tech-badge">JavaFX</span><span class="tech-badge">MySQL</span></div>
+            </div>
+            <div class="project-desc">Desktop CRUD application with login system, task categories, and deadline notifications.</div>
+          </div>
+        </div>
+
+        <div class="main-section">
+          <div class="main-title">Certifications</div>
+          <div class="cert-item">
+            <div><div class="cert-name">Responsive Web Design</div><div class="cert-issuer">freeCodeCamp</div></div>
+            <div class="cert-year">2024</div>
+          </div>
+          <div class="cert-item">
+            <div><div class="cert-name">JavaScript Algorithms & Data Structures</div><div class="cert-issuer">freeCodeCamp</div></div>
+            <div class="cert-year">2024</div>
+          </div>
+          <div class="cert-item">
+            <div><div class="cert-name">Python for Everybody Specialization</div><div class="cert-issuer">Coursera – University of Michigan</div></div>
+            <div class="cert-year">2023</div>
+          </div>
+          <div class="cert-item">
+            <div><div class="cert-name">Git & GitHub Bootcamp</div><div class="cert-issuer">Udemy</div></div>
+            <div class="cert-year">2023</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

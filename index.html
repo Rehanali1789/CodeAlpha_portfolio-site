@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Professional Portfolio - Software Developer & Frontend Engineer" />
+  <title>Portfolio Site | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body class="dark-mode">
+
+  <!-- Loading Screen -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-circle"></div>
+      <p class="loader-text">Loading...</p>
+    </div>
+  </div>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- Particles Background -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Navbar -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">Portfolio<span>.</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#resume" class="nav-link">Resume</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="hero-content">
+      <div class="hero-image-wrapper">
+        <div class="hero-image-ring"></div>
+        <img src="https://avatars.githubusercontent.com/u/9919?s=400" alt="Profile" class="hero-image" id="hero-img" />
+      </div>
+      <div class="hero-text">
+        <p class="hero-greeting reveal">Hello, I'm</p>
+        <h1 class="hero-name gradient-text reveal">Portfolio Site</h1>
+        <div class="typing-wrapper reveal">
+          <span id="typed-text"></span><span class="cursor">|</span>
+        </div>
+        <p class="hero-bio reveal">Passionate about building elegant, high-performance web experiences that solve real problems.</p>
+        <div class="hero-buttons reveal">
+          <a href="resume.html" target="_blank" class="btn btn-primary"><i class="fas fa-download"></i> Download Resume</a>
+          <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="mouse"><div class="wheel"></div></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">About <span class="gradient-text">Me</span></h2>
+      <p class="section-subtitle reveal">Get to know me better</p>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <h3>Who Am I?</h3>
+          <p>I'm a passionate software developer and computer science student with a strong focus on frontend development, UI/UX design, and building scalable web applications. I love turning complex problems into simple, beautiful solutions.</p>
+          <p class="career-objective">Career Objective: To leverage my technical skills in a dynamic environment where I can contribute to meaningful projects and continue growing as a full-stack developer.</p>
+          <div class="about-info-grid">
+            <div class="info-card reveal"><i class="fas fa-user"></i><span class="info-label">Name</span><span>Portfolio Site</span></div>
+            <div class="info-card reveal"><i class="fas fa-graduation-cap"></i><span class="info-label">Degree</span><span>B.Sc. Computer Science</span></div>
+            <div class="info-card reveal"><i class="fas fa-map-marker-alt"></i><span class="info-label">Location</span><span>Hyderabad, India</span></div>
+            <div class="info-card reveal"><i class="fas fa-briefcase"></i><span class="info-label">Status</span><span>Open to Work</span></div>
+          </div>
+        </div>
+        <div class="about-stats reveal">
+          <div class="stat-card"><span class="stat-number" data-target="15">0</span><span class="stat-label">Projects Done</span></div>
+          <div class="stat-card"><span class="stat-number" data-target="8">0</span><span class="stat-label">Technologies</span></div>
+          <div class="stat-card"><span class="stat-number" data-target="2">0</span><span class="stat-label">Years Experience</span></div>
+          <div class="stat-card"><span class="stat-number" data-target="100">0</span><span class="stat-label">% Dedication</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">My <span class="gradient-text">Skills</span></h2>
+      <p class="section-subtitle reveal">Technologies I work with</p>
+      <div class="skills-grid">
+        <div class="skill-card reveal" style="--i:1"><div class="skill-icon"><i class="fab fa-html5"></i></div><h4>HTML5</h4><div class="skill-bar"><div class="skill-fill" data-width="95"></div></div><span class="skill-percent">95%</span></div>
+        <div class="skill-card reveal" style="--i:2"><div class="skill-icon"><i class="fab fa-css3-alt"></i></div><h4>CSS3</h4><div class="skill-bar"><div class="skill-fill" data-width="90"></div></div><span class="skill-percent">90%</span></div>
+        <div class="skill-card reveal" style="--i:3"><div class="skill-icon"><i class="fab fa-js"></i></div><h4>JavaScript</h4><div class="skill-bar"><div class="skill-fill" data-width="85"></div></div><span class="skill-percent">85%</span></div>
+        <div class="skill-card reveal" style="--i:4"><div class="skill-icon"><i class="fab fa-python"></i></div><h4>Python</h4><div class="skill-bar"><div class="skill-fill" data-width="80"></div></div><span class="skill-percent">80%</span></div>
+        <div class="skill-card reveal" style="--i:5"><div class="skill-icon"><i class="fab fa-java"></i></div><h4>Java</h4><div class="skill-bar"><div class="skill-fill" data-width="75"></div></div><span class="skill-percent">75%</span></div>
+        <div class="skill-card reveal" style="--i:6"><div class="skill-icon"><i class="fas fa-database"></i></div><h4>SQL</h4><div class="skill-bar"><div class="skill-fill" data-width="78"></div></div><span class="skill-percent">78%</span></div>
+        <div class="skill-card reveal" style="--i:7"><div class="skill-icon"><i class="fab fa-git-alt"></i></div><h4>Git</h4><div class="skill-bar"><div class="skill-fill" data-width="88"></div></div><span class="skill-percent">88%</span></div>
+        <div class="skill-card reveal" style="--i:8"><div class="skill-icon"><i class="fab fa-github"></i></div><h4>GitHub</h4><div class="skill-bar"><div class="skill-fill" data-width="88"></div></div><span class="skill-percent">88%</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">My <span class="gradient-text">Projects</span></h2>
+      <p class="section-subtitle reveal">Things I've built</p>
+      <div class="filter-buttons reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="python">Python</button>
+        <button class="filter-btn" data-filter="java">Java</button>
+      </div>
+      <div class="projects-grid" id="projects-grid">
+        <div class="project-card reveal" data-category="web">
+          <div class="project-img"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=220&fit=crop" alt="E-Commerce App" /></div>
+          <div class="project-info">
+            <h3>E-Commerce Platform</h3>
+            <p>A full-featured online store with cart, auth, and payment integration.</p>
+            <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+            <div class="project-links">
+              <a href="https://github.com/topics/ecommerce-website" target="_blank" rel="noopener" class="btn-sm"><i class="fab fa-github"></i> GitHub</a>
+              <a href="https://demo.opencart.com" target="_blank" rel="noopener" class="btn-sm btn-accent"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card reveal" data-category="python">
+          <div class="project-img"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=220&fit=crop" alt="Data Dashboard" /></div>
+          <div class="project-info">
+            <h3>Data Analytics Dashboard</h3>
+            <p>Interactive data visualization tool built with Python and Dash.</p>
+            <div class="project-tags"><span>Python</span><span>Pandas</span><span>Dash</span></div>
+            <div class="project-links">
+              <a href="https://github.com/topics/data-dashboard" target="_blank" rel="noopener" class="btn-sm"><i class="fab fa-github"></i> GitHub</a>
+              <a href="https://dash.gallery/Portal" target="_blank" rel="noopener" class="btn-sm btn-accent"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card reveal" data-category="java">
+          <div class="project-img"><img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=400&h=220&fit=crop" alt="Task Manager" /></div>
+          <div class="project-info">
+            <h3>Task Manager App</h3>
+            <p>A Java-based desktop task management application with CRUD functionality.</p>
+            <div class="project-tags"><span>Java</span><span>JavaFX</span><span>SQL</span></div>
+            <div class="project-links">
+              <a href="https://github.com/topics/task-manager-java" target="_blank" rel="noopener" class="btn-sm"><i class="fab fa-github"></i> GitHub</a>
+              <a href="https://todoist.com" target="_blank" rel="noopener" class="btn-sm btn-accent"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card reveal" data-category="web">
+          <div class="project-img"><img src="https://images.unsplash.com/photo-1592210454359-9043f067919b?w=400&h=220&fit=crop" alt="Weather App" /></div>
+          <div class="project-info">
+            <h3>Weather App</h3>
+            <p>Real-time weather app using OpenWeatherMap API with geolocation support.</p>
+            <div class="project-tags"><span>HTML</span><span>CSS</span><span>JS API</span></div>
+            <div class="project-links">
+              <a href="https://github.com/topics/weather-app" target="_blank" rel="noopener" class="btn-sm"><i class="fab fa-github"></i> GitHub</a>
+              <a href="https://openweathermap.org/weathermap" target="_blank" rel="noopener" class="btn-sm btn-accent"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card reveal" data-category="python">
+          <div class="project-img"><img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=400&h=220&fit=crop" alt="Chat Bot" /></div>
+          <div class="project-info">
+            <h3>AI Chatbot</h3>
+            <p>NLP-powered chatbot built using Python, NLTK, and a simple neural network.</p>
+            <div class="project-tags"><span>Python</span><span>NLTK</span><span>TensorFlow</span></div>
+            <div class="project-links">
+              <a href="https://github.com/topics/chatbot-python" target="_blank" rel="noopener" class="btn-sm"><i class="fab fa-github"></i> GitHub</a>
+              <a href="https://www.tidio.com/talk-to-tidio" target="_blank" rel="noopener" class="btn-sm btn-accent"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card reveal" data-category="web">
+          <div class="project-img"><img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=220&fit=crop" alt="Portfolio" /></div>
+          <div class="project-info">
+            <h3>Portfolio Website</h3>
+            <p>This very portfolio — built from scratch with HTML, CSS, and vanilla JS.</p>
+            <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+            <div class="project-links">
+              <a href="https://github.com/topics/portfolio-website" target="_blank" rel="noopener" class="btn-sm"><i class="fab fa-github"></i> GitHub</a>
+              <a href="https://brittanychiang.com" target="_blank" rel="noopener" class="btn-sm btn-accent"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume Section -->
+  <section id="resume" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">My <span class="gradient-text">Resume</span></h2>
+      <p class="section-subtitle reveal">Education & Experience</p>
+      <div class="resume-grid">
+        <div class="timeline-col reveal">
+          <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">2025 – Present</span>
+                <h4>B.Sc. Computer Science</h4>
+                <p>Malla Reddy University, Hyderabad</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">2023 – 2025</span>
+                <h4>MPC</h4>
+                <p>Sr Junior College — GPA: 75/100 Percentage</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-col reveal">
+          <h3><i class="fas fa-briefcase"></i> Experience</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">Summer 2025</span>
+                <h4>Frontend Intern</h4>
+                <p>TechCorp Inc. — Built UI components in React and improved page load speed by 30%.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">2024</span>
+                <h4>Freelance Web Developer</h4>
+                <p>Designed and deployed 5+ client websites with responsive design.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="resume-download reveal">
+        <a href="resume.html" target="_blank" class="btn btn-primary"><i class="fas fa-download"></i> Download Full Resume (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Get In <span class="gradient-text">Touch</span></h2>
+      <p class="section-subtitle reveal">Let's work together</p>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <h3>Let's Talk</h3>
+          <p>Have a project in mind or want to connect? I'm always open to new opportunities and collaborations.</p>
+          <div class="social-links">
+            <a href="https://github.com/Rehanali1789" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/mohammed-rehan-ali-024b1437a/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:mohammedrehanali1789@gmail.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <form class="contact-form reveal" id="contact-form" novalidate>
+          <div class="form-group">
+            <input type="text" id="name" placeholder="Your Name" required />
+            <span class="form-error" id="name-error"></span>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" placeholder="Your Email" required />
+            <span class="form-error" id="email-error"></span>
+          </div>
+          <div class="form-group">
+            <input type="text" id="subject" placeholder="Subject" required />
+            <span class="form-error" id="subject-error"></span>
+          </div>
+          <div class="form-group">
+            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+            <span class="form-error" id="message-error"></span>
+          </div>
+          <button type="submit" class="btn btn-primary full-width"><i class="fas fa-paper-plane"></i> Send Message</button>
+          <div class="form-success" id="form-success">Message sent successfully! I'll get back to you soon.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#hero" class="nav-logo">Portfolio<span>.</span></a>
+          <p>Building the web, one line at a time.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h4>Connect</h4>
+          <div class="social-links">
+            <a href="https://github.com/Rehanali1789" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/mohammed-rehan-ali-024b1437a/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:mohammedrehanali1789@gmail.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Portfolio Site. All rights reserved.</p>
+        <a href="#hero" class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
